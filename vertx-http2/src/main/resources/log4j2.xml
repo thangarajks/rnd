@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+    <Appenders>
+        <RollingFile name="RADIUS_SYNC_LOG" fileName="${sys:log.dir:-logs}/radius.log" filePattern="${sys:log.dir:-logs}/radius-%i.log.gz" append="true">
+            <PatternLayout pattern="%-5p | %d{HH:mm:ss} | %c{2} (%F:%L) - %m%n" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingFile>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p | %d{HH:mm:ss} | [%t] %c{2} (%F:%L) - %m%n" />
+            <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="ACCEPT" />
+        </Console>
+        <Console name="STDERR" target="SYSTEM_ERR">
+            <PatternLayout pattern="%-5p | %d{HH:mm:ss} | [%t] %c{2} (%F:%L) - %m%n" />
+            <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="${env:loglevel:-DEBUG}"> <!-- Default -->
+            <AppenderRef ref="RADIUS_SYNC_LOG" />
+            <AppenderRef ref="STDOUT" />
+            <AppenderRef ref="STDERR" />
+        </Root>
+        <Logger name="org.apache.kafka" level="WARN" />
+        <Logger name="org.mongodb.driver" level="WARN" />
+        <Logger name="protocol" level="WARN" />
+        <Logger name="com.cisco.dnaspaces.radius.util" level="DEBUG" />
+        <!-- <Logger name="io.netty.handler.logging" level="DEBUG" /> -->
+    </Loggers>
+</Configuration>
