@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "2c0d7da0-756f-404c-ad24-c0baae7cc6ae",
+		"name": "RnD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24847103"
+	},
+	"item": [
+		{
+			"name": "vertx-kotlin",
+			"item": [
+				{
+					"name": "healthcheck",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/healthcheck",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"healthcheck"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "healthcheck-success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/healthcheck",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"healthcheck"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "51"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"status\": \"ok\"\n    },\n    \"message\": \"API is Healthy\"\n}"
+						}
+					]
+				},
+				{
+					"name": "generate jwt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jwt/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jwt",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzb21lIjoidG9rZW4tZGF0YSIsImlhdCI6MTY3NDI4ODcwNH0.Z0BYcMcUiChS69CvRDFN-X6HHz4tifm2ZuoGdkQ6JdxE2VA3nnnqRpS6oUSWw7WSiCv1ONbPSu6J7eEh1u-wz52Sl9cRVA-pAt2gpdMbJZlh_mxURFmCVIzL8HUTJkibpaZsMvV_xqjtYg-TifoE1bIXbTfN08hbn4B-P-XwLOUWxBzOTybaeclLaIlSPfTyDlInZxxB8Q_o0-Bqj6STo1tYJmAgdVbKwe4hXfl59peCMgVjanbAqeb6Fy8pdmgay5VuM0TJXUEeXX8vyFFa2JcC3WRuWpcb0yjAhSzxtqmt9jyqJZR0auy4m6pR6naUc7gfi3U1GgXzBkLvK7ntRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jwt/secured/user/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jwt",
+								"secured",
+								"user",
+								"detail"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get user detail-Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jwt/secured/user/detail",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jwt",
+										"secured",
+										"user",
+										"detail"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "58"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"error\": \"Unauthorized\"\n    },\n    \"message\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "get user detail-Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/jwt/secured/user/detail",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"jwt",
+										"secured",
+										"user",
+										"detail"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-length",
+									"value": "512"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzb21lIjoidG9rZW4tZGF0YSIsImlhdCI6MTY3NDI4ODcwNH0.Z0BYcMcUiChS69CvRDFN-X6HHz4tifm2ZuoGdkQ6JdxE2VA3nnnqRpS6oUSWw7WSiCv1ONbPSu6J7eEh1u-wz52Sl9cRVA-pAt2gpdMbJZlh_mxURFmCVIzL8HUTJkibpaZsMvV_xqjtYg-TifoE1bIXbTfN08hbn4B-P-XwLOUWxBzOTybaeclLaIlSPfTyDlInZxxB8Q_o0-Bqj6STo1tYJmAgdVbKwe4hXfl59peCMgVjanbAqeb6Fy8pdmgay5VuM0TJXUEeXX8vyFFa2JcC3WRuWpcb0yjAhSzxtqmt9jyqJZR0auy4m6pR6naUc7gfi3U1GgXzBkLvK7ntRg\",\n        \"some\": \"token-data\"\n    },\n    \"message\": \"Current User Details\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
