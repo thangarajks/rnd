@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+
+option java_package = "com.thangs.protobuf";
+option java_outer_classname = "MessageProtos";
+
+message SomeMessage {
+  string id = 1;
+  string message = 2;
+  MessageType messageType = 3;
+}
+
+enum MessageType {
+  READ = 0;
+  UNREAD = 1;
+  SPAM = 2;
+  UNKNOWN = 3;
+}
