@@ -1,0 +1,22 @@
+# Intellij
+.idea
+*.iml
+*.eml
+
+# Eclipse
+.classpath
+/.settings
+/.project
+
+# Mac
+.DS_Store
+
+# Maven
+logs/
+target/
+/build/
+work/
+.vertx/
+
+#Other Version Control files
+.cvsignore
